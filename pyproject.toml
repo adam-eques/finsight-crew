@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finsight-crew"
+version = "0.1.0"
+description = "A provider-agnostic multi-agent financial research crew built on CrewAI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "adam-eques" }]
+keywords = ["crewai", "agents", "llm", "finance", "rag"]
+dependencies = []
+
+[project.scripts]
+finsight = "finsight.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
