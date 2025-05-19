@@ -12,6 +12,12 @@ ROOT = Path(__file__).resolve().parents[2]
 CONFIG_DIR = ROOT / "config"
 
 
+def _as_bool(value) -> bool:
+    if isinstance(value, bool):
+        return value
+    return str(value).strip().lower() in {"1", "true", "yes", "on"}
+
+
 @dataclass
 class Settings:
     llm_provider: str = "anthropic"
@@ -24,12 +30,6 @@ class Settings:
 
 
 _CASTS = {"temperature": float, "max_rpm": int, "verbose": _as_bool}
-
-
-def _as_bool(value):
-    if isinstance(value, bool):
-        return value
-    return str(value).strip().lower() in {"1", "true", "yes", "on"}
 
 
 def load_settings(path: Path | None = None) -> Settings:
