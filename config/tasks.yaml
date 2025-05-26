@@ -1,0 +1,32 @@
+research:
+  description: >
+    Research {company} ({ticker}) to answer: {question}. Collect recent
+    news, business context, and primary sources. Keep every claim tied to
+    a source URL.
+  expected_output: >
+    A structured briefing of findings, each with a source.
+  agent: researcher
+
+analyze:
+  description: >
+    Using market data and filings for {ticker}, compute the metrics that
+    bear on the question and interpret them.
+  expected_output: >
+    A table of key metrics with interpretation.
+  agent: analyst
+
+assess_risk:
+  description: >
+    Review the research and analysis for {company} and enumerate material
+    risks, ranked by severity.
+  expected_output: >
+    A ranked list of risks with rationale.
+  agent: risk_assessor
+
+write_report:
+  description: >
+    Synthesise everything into an investment brief on {company} that
+    answers: {question}.
+  expected_output: >
+    A markdown investment brief with citations.
+  agent: writer

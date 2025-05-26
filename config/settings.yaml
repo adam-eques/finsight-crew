@@ -1,0 +1,9 @@
+# Global runtime settings. Any value may be overridden by an
+# environment variable of the form FINSIGHT_<UPPER_SNAKE_KEY>.
+llm_provider: anthropic
+llm_model: claude-sonnet-4-20250514
+temperature: 0.2
+max_rpm: 20
+verbose: true
+data_dir: data
+reports_dir: reports
