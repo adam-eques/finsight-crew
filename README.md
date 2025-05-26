@@ -19,3 +19,7 @@ finsight research AAPL --question "Is the balance sheet healthy?"
 ## Status
 
 Early development. See `CHANGELOG.md` for progress.
+
+## Configuration
+
+See [docs/configuration.md](docs/configuration.md).
