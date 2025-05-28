@@ -1,0 +1,14 @@
+# Model presets keyed by provider. The active provider comes from
+# settings (llm_provider); the model can be overridden per run.
+anthropic:
+  prefix: anthropic
+  default_model: claude-sonnet-4-20250514
+  api_key_env: ANTHROPIC_API_KEY
+openai:
+  prefix: openai
+  default_model: gpt-4o
+  api_key_env: OPENAI_API_KEY
+ollama:
+  prefix: ollama
+  default_model: llama3.1
+  api_key_env: null
