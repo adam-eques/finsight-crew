@@ -30,3 +30,21 @@ def resolve_model_id(provider: str, model: str | None = None,
     model = model or cfg["default_model"]
     prefix = cfg["prefix"]
     return model if model.startswith(prefix + "/") else f"{prefix}/{model}"
+
+
+def build_llm(settings: Settings, model: str | None = None):
+    """Construct a CrewAI LLM for the active provider.
+
+    Imported lazily so the module can be unit-tested without crewai
+    installed.
+    """
+    from crewai import LLM
+
+    presets = _presets()
+    model_id = resolve_model_id(settings.llm_provider, model or settings.llm_model, presets)
+    api_key_env = presets[settings.llm_provider].get("api_key_env")
+    if api_key_env and not os.environ.get(api_key_env):
+        raise RuntimeError(
+            f"{api_key_env} is not set for provider {settings.llm_provider!r}"
+        )
+    return LLM(model=model_id, temperature=settings.temperature)
