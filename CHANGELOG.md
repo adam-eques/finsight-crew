@@ -12,3 +12,5 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - Structured pydantic outputs and a deterministic financial calculator.
 - Market-data tool backed by yfinance.
 - Web search (Serper) and SEC EDGAR filings tools.
+- RAG pipeline: chunking, pluggable embeddings, vector store, retriever.
+- `filings_rag` tool for grounded answers over filing text.
