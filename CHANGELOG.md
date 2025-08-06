@@ -14,3 +14,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - Web search (Serper) and SEC EDGAR filings tools.
 - RAG pipeline: chunking, pluggable embeddings, vector store, retriever.
 - `filings_rag` tool for grounded answers over filing text.
+- Agents assembled from YAML specs, wired to a tool registry.
