@@ -20,3 +20,23 @@ class ResearchRequest:
     def as_inputs(self) -> dict:
         return {"company": self.company, "ticker": self.ticker,
                 "question": self.question}
+
+
+def build_crew(settings: Optional[Settings] = None):
+    """Construct the CrewAI Crew (imported lazily)."""
+    from crewai import Crew, Process
+
+    from finsight.agents import build_agents
+    from finsight.tasks import build_tasks
+    from finsight.tools.registry import build_tools
+
+    settings = settings or load_settings()
+    tools = build_tools()
+    agents = build_agents(settings, tools)
+    tasks = build_tasks(agents)
+    return Crew(
+        agents=list(agents.values()),
+        tasks=tasks,
+        process=Process.sequential,
+        verbose=settings.verbose,
+    )
