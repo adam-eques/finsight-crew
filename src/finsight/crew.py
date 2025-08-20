@@ -40,3 +40,13 @@ def build_crew(settings: Optional[Settings] = None):
         process=Process.sequential,
         verbose=settings.verbose,
     )
+
+
+def run(request: ResearchRequest, settings: Optional[Settings] = None) -> str:
+    """Run the crew for a request and return the final report text."""
+    settings = settings or load_settings()
+    log.info("researching %s (%s): %s", request.company, request.ticker,
+             request.question)
+    crew = build_crew(settings)
+    result = crew.kickoff(inputs=request.as_inputs())
+    return str(result)
