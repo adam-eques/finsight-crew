@@ -18,3 +18,10 @@
    for offline/test runs.
 3. **vector_store** — cosine similarity over normalised vectors.
 4. **retriever** — indexes a document and returns grounding context.
+
+## Crew
+
+`build_crew()` wires the tool registry, agents, and tasks into a
+`Process.sequential` CrewAI `Crew`. `run(request)` interpolates the
+company/ticker/question into the task prompts and returns the final
+report text.
