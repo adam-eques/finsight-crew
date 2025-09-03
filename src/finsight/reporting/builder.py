@@ -30,3 +30,24 @@ def save_markdown(report: Report, reports_dir: str = "reports") -> Path:
     path = out_dir / f"{slugify(report.ticker)}-brief.md"
     path.write_text(render_markdown(report), encoding="utf-8")
     return path
+
+
+def save_pdf(report: Report, reports_dir: str = "reports"):
+    """Best-effort PDF export. Returns the path, or None if reportlab is
+    not installed — markdown remains the source of truth."""
+    try:
+        from reportlab.lib.pagesizes import LETTER
+        from reportlab.pdfgen import canvas
+    except Exception:
+        return None
+    out_dir = Path(reports_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / f"{slugify(report.ticker)}-brief.pdf"
+    c = canvas.Canvas(str(path), pagesize=LETTER)
+    text = c.beginText(54, 740)
+    for line in render_markdown(report).splitlines():
+        text.textLine(line[:110])
+    c.drawText(text)
+    c.showPage()
+    c.save()
+    return path
