@@ -16,3 +16,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - `filings_rag` tool for grounded answers over filing text.
 - Agents assembled from YAML specs, wired to a tool registry.
 - Sequential crew assembly and a typed `ResearchRequest` entrypoint.
+- Markdown report rendering with ranked risks; optional PDF export.
