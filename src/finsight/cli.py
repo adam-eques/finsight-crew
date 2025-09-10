@@ -22,4 +22,10 @@ def build_parser() -> argparse.ArgumentParser:
     research.add_argument("--question", "-q", required=True)
     research.add_argument("--company", default=None,
                           help="Company name (defaults to the ticker)")
+    research.add_argument("--provider", default=None,
+                          help="Override llm_provider for this run")
+    research.add_argument("--model", default=None,
+                          help="Override llm_model for this run")
+    research.add_argument("--out", default=None,
+                          help="Directory to write the markdown brief")
     return parser
