@@ -17,3 +17,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - Agents assembled from YAML specs, wired to a tool registry.
 - Sequential crew assembly and a typed `ResearchRequest` entrypoint.
 - Markdown report rendering with ranked risks; optional PDF export.
+- `finsight research` CLI with per-run provider/model overrides.
