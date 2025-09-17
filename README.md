@@ -23,3 +23,7 @@ Early development. See `CHANGELOG.md` for progress.
 ## Configuration
 
 See [docs/configuration.md](docs/configuration.md).
+
+## Usage
+
+See [docs/usage.md](docs/usage.md) and [docs/agents.md](docs/agents.md).
