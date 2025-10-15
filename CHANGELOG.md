@@ -3,7 +3,7 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/).
 
-## [Unreleased]
+## [0.1.0] - 2025-10-08
 
 ### Added
 - Project scaffolding, packaging, and MIT license.
@@ -19,3 +19,5 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - Markdown report rendering with ranked risks; optional PDF export.
 - `finsight research` CLI with per-run provider/model overrides.
 - CI (ruff + pytest across Python 3.10-3.12), Dockerfile, Makefile.
+
+## [Unreleased]
