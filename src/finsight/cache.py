@@ -30,3 +30,10 @@ class DiskCache:
         payload = {"stored_at": now if now is not None else time.time(),
                    "value": value}
         self._path(key).write_text(json.dumps(payload), encoding="utf-8")
+
+
+def cache_key(*parts) -> str:
+    import hashlib
+
+    raw = "|".join(str(p) for p in parts)
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
