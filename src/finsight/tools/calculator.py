@@ -29,3 +29,16 @@ def cagr(begin_value: float, end_value: float, years: float) -> float:
     if begin_value <= 0 or years <= 0:
         raise ValueError("begin_value and years must be positive")
     return (end_value / begin_value) ** (1 / years) - 1
+
+
+def return_on_equity(net_income: float, shareholder_equity: float) -> float:
+    if shareholder_equity == 0:
+        raise ValueError("shareholder_equity must be non-zero")
+    return net_income / shareholder_equity
+
+
+def quick_ratio(current_assets: float, inventory: float,
+                current_liabilities: float) -> float:
+    if current_liabilities == 0:
+        raise ValueError("current_liabilities must be non-zero")
+    return (current_assets - inventory) / current_liabilities
