@@ -20,4 +20,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - `finsight research` CLI with per-run provider/model overrides.
 - CI (ruff + pytest across Python 3.10-3.12), Dockerfile, Makefile.
 
+## [0.2.0] - 2025-11-05
+
 ## [Unreleased]
