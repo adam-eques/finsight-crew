@@ -9,3 +9,11 @@ def test_to_json_roundtrip():
     data = json.loads(to_json(r))
     assert data["ticker"] == "AAPL"
     assert data["summary"] == "ok"
+
+
+def test_to_html_has_ticker_title():
+    from finsight.formats import to_html
+    r = Report(company="Apple", ticker="AAPL", question="?")
+    html = to_html(r)
+    assert "<title>AAPL brief</title>" in html
+    assert "<pre>" in html
