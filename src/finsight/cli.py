@@ -28,6 +28,9 @@ def build_parser() -> argparse.ArgumentParser:
                           help="Override llm_model for this run")
     research.add_argument("--out", default=None,
                           help="Directory to write the markdown brief")
+    research.add_argument("--format", default="md",
+                          choices=["md", "json", "html"],
+                          help="Output format for the brief")
     return parser
 
 

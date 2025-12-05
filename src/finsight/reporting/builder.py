@@ -51,3 +51,23 @@ def save_pdf(report: Report, reports_dir: str = "reports"):
     c.showPage()
     c.save()
     return path
+
+
+def save_json(report: Report, reports_dir: str = "reports") -> Path:
+    from finsight.formats import to_json
+
+    out_dir = Path(reports_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / f"{slugify(report.ticker)}-brief.json"
+    path.write_text(to_json(report), encoding="utf-8")
+    return path
+
+
+def save_html(report: Report, reports_dir: str = "reports") -> Path:
+    from finsight.formats import to_html
+
+    out_dir = Path(reports_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / f"{slugify(report.ticker)}-brief.html"
+    path.write_text(to_html(report), encoding="utf-8")
+    return path

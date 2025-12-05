@@ -22,4 +22,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [0.2.0] - 2025-11-05
 
+## [0.3.0] - 2025-12-03
+
+### Added
+- Retry/backoff and disk cache; ROE & quick-ratio helpers (0.2.0).
+- JSON/HTML output formats and `--format` flag (0.3.0).
+
 ## [Unreleased]
