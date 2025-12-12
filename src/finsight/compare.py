@@ -11,3 +11,13 @@ def rank_by(data: Metrics, metric: str, reverse: bool = True) -> List[Tuple[str,
     items = [(t, m[metric]) for t, m in data.items() if m.get(metric) is not None]
     items.sort(key=lambda pair: pair[1], reverse=reverse)
     return items
+
+
+def to_markdown(data: Metrics, metrics: List[str]) -> str:
+    header = "| Ticker | " + " | ".join(metrics) + " |"
+    sep = "|" + "---|" * (len(metrics) + 1)
+    rows = [header, sep]
+    for ticker, m in data.items():
+        cells = [str(m.get(k, "-")) for k in metrics]
+        rows.append(f"| {ticker} | " + " | ".join(cells) + " |")
+    return "\n".join(rows)
