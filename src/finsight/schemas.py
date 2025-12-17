@@ -34,3 +34,9 @@ class Report(BaseModel):
     findings: List[Finding] = []
     metrics: List[Metric] = []
     risks: List[Risk] = []
+
+
+class Comparison(BaseModel):
+    metric: str
+    tickers: List[str] = []
+    values: dict = {}
