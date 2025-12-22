@@ -31,6 +31,10 @@ def build_parser() -> argparse.ArgumentParser:
     research.add_argument("--format", default="md",
                           choices=["md", "json", "html"],
                           help="Output format for the brief")
+
+    compare = sub.add_parser("compare", help="Compare tickers by a metric")
+    compare.add_argument("tickers", nargs="+")
+    compare.add_argument("--metric", default="trailingPE")
     return parser
 
 
