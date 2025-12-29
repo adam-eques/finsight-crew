@@ -29,3 +29,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - JSON/HTML output formats and `--format` flag (0.3.0).
 
 ## [Unreleased]
+- Multi-ticker `compare` command and comparison helpers.
