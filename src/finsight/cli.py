@@ -31,6 +31,10 @@ def build_parser() -> argparse.ArgumentParser:
     research.add_argument("--format", default="md",
                           choices=["md", "json", "html"],
                           help="Output format for the brief")
+
+    compare = sub.add_parser("compare", help="Compare tickers by a metric")
+    compare.add_argument("tickers", nargs="+")
+    compare.add_argument("--metric", default="trailingPE")
     return parser
 
 
@@ -65,4 +69,20 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = build_parser().parse_args(argv)
     if args.command == "research":
         return _run_research(args)
+    if args.command == "compare":
+        return _run_compare(args)
     return 1
+
+
+def _run_compare(args) -> int:
+    from finsight.tools.market_data import fetch_snapshot
+    from finsight.compare import rank_by
+
+    data = {}
+    for ticker in args.tickers:
+        snap = fetch_snapshot(ticker)
+        value = snap.get(args.metric)
+        data[ticker] = {args.metric: value} if value is not None else {}
+    for ticker, value in rank_by(data, args.metric):
+        print(f"{ticker}\t{value}")
+    return 0
