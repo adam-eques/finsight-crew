@@ -41,3 +41,18 @@ def make_sentiment_tool():
             return f"sentiment={score(text):.2f}"
 
     return SentimentTool()
+
+
+def score_with_negation(text: str) -> float:
+    """Flip a word's polarity when the preceding token is a negator."""
+    negators = {"no", "not", "never", "without"}
+    tokens = [t.strip(".,!?()").lower() for t in text.split()]
+    pos = neg = 0
+    for i, tok in enumerate(tokens):
+        flip = i > 0 and tokens[i - 1] in negators
+        if tok in POSITIVE:
+            neg, pos = (neg + 1, pos) if flip else (neg, pos + 1)
+        elif tok in NEGATIVE:
+            pos, neg = (pos + 1, neg) if flip else (pos, neg + 1)
+    total = pos + neg
+    return 0.0 if total == 0 else (pos - neg) / total
