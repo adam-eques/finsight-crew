@@ -21,7 +21,7 @@ def load_agent_specs(path: Path | None = None) -> Dict[str, dict]:
 
 # Which tools each agent is allowed to use.
 AGENT_TOOLS = {
-    "researcher": ["web_search", "sec_filings"],
+    "researcher": ["web_search", "sec_filings", "sentiment"],
     "analyst": ["market_data", "calculator"],
     "risk_assessor": ["filings_rag"],
     "writer": [],

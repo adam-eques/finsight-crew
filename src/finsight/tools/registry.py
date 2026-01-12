@@ -14,12 +14,14 @@ def build_tools() -> dict:
     from finsight.tools.market_data import make_market_data_tool
     from finsight.tools.filings import make_filings_tool
     from finsight.tools.rag import make_filings_rag_tool
+    from finsight.tools.sentiment import make_sentiment_tool
 
     factories = {
         "web_search": make_web_search_tool,
         "market_data": make_market_data_tool,
         "sec_filings": make_filings_tool,
         "filings_rag": make_filings_rag_tool,
+        "sentiment": make_sentiment_tool,
     }
     tools = {}
     for name, factory in factories.items():
