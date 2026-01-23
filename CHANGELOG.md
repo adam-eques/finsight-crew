@@ -32,3 +32,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - Multi-ticker `compare` command and comparison helpers.
 
 ## [Unreleased]
+- Lexicon sentiment tool (with negation) and report completeness scoring.
