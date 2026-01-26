@@ -1,7 +1,8 @@
 from finsight.agents import AGENT_TOOLS, load_agent_specs
 
 
-KNOWN_TOOLS = {"web_search", "sec_filings", "market_data", "calculator", "filings_rag"}
+KNOWN_TOOLS = {"web_search", "sec_filings", "market_data", "calculator",
+               "filings_rag", "sentiment"}
 
 
 def test_specs_have_required_fields():
@@ -21,3 +22,7 @@ def test_agent_tools_are_known():
 def test_every_spec_has_tool_mapping():
     for name in load_agent_specs():
         assert name in AGENT_TOOLS
+
+
+def test_researcher_has_sentiment():
+    assert "sentiment" in AGENT_TOOLS["researcher"]
