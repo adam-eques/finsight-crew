@@ -31,5 +31,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 ## [0.4.0] - 2025-12-31
 - Multi-ticker `compare` command and comparison helpers.
 
-## [Unreleased]
+## [0.5.0] - 2026-01-28
 - Lexicon sentiment tool (with negation) and report completeness scoring.
+
+## [Unreleased]
