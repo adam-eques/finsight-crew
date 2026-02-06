@@ -24,3 +24,23 @@ class RunManifest:
 
     def estimate_cost(self, usd_per_1k_tokens: float = 0.003) -> float:
         return round(self.total_tokens() / 1000 * usd_per_1k_tokens, 4)
+
+
+    def to_dict(self) -> Dict:
+        return {
+            "company": self.company,
+            "ticker": self.ticker,
+            "stages": self.stages,
+            "total_seconds": self.total_seconds(),
+            "total_tokens": self.total_tokens(),
+        }
+
+    def save(self, reports_dir: str = "reports"):
+        import json
+        from pathlib import Path
+
+        out = Path(reports_dir)
+        out.mkdir(parents=True, exist_ok=True)
+        path = out / f"{self.ticker.lower()}-manifest.json"
+        path.write_text(json.dumps(self.to_dict(), indent=2), encoding="utf-8")
+        return path
