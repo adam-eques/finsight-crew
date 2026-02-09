@@ -16,3 +16,12 @@ def test_totals_and_cost():
     assert m.total_seconds() == 3.0
     assert m.total_tokens() == 2000
     assert m.estimate_cost(0.003) == 0.006
+
+
+def test_to_dict_and_save(tmp_path):
+    m = RunManifest(company="A", ticker="AAPL")
+    m.add_stage("x", 1.0, tokens=10)
+    d = m.to_dict()
+    assert d["ticker"] == "AAPL" and d["total_tokens"] == 10
+    path = m.save(str(tmp_path))
+    assert path.exists()
