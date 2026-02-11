@@ -27,9 +27,12 @@ class Settings:
     verbose: bool = True
     data_dir: str = "data"
     reports_dir: str = "reports"
+    output_format: str = "md"
+    save_manifest: bool = False
 
 
-_CASTS = {"temperature": float, "max_rpm": int, "verbose": _as_bool}
+_CASTS = {"temperature": float, "max_rpm": int, "verbose": _as_bool,
+          "save_manifest": _as_bool}
 
 
 def load_settings(path: Path | None = None) -> Settings:
