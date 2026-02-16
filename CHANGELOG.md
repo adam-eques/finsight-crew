@@ -35,3 +35,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 - Lexicon sentiment tool (with negation) and report completeness scoring.
 
 ## [Unreleased]
+- Run manifest with timings, token totals, and cost estimate.
