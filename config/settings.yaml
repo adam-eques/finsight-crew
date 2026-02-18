@@ -7,3 +7,5 @@ max_rpm: 20
 verbose: true
 data_dir: data
 reports_dir: reports
+output_format: md
+save_manifest: false

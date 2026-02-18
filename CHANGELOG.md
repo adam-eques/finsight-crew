@@ -34,4 +34,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 ## [0.5.0] - 2026-01-28
 - Lexicon sentiment tool (with negation) and report completeness scoring.
 
+## [0.6.0] - 2026-02-25
+- Run manifest with timings, token totals, and cost estimate.
+
 ## [Unreleased]

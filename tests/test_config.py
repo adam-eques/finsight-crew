@@ -27,3 +27,9 @@ def test_env_override(tmp_path, monkeypatch):
     s = load_settings(tmp_path / "missing.yaml")
     assert s.max_rpm == 5
     assert s.verbose is False
+
+
+def test_new_settings_defaults(tmp_path):
+    s = load_settings(tmp_path / "missing.yaml")
+    assert s.output_format == "md"
+    assert s.save_manifest is False
