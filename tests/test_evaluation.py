@@ -12,3 +12,11 @@ def test_full_report_high():
                metrics=[Metric(name="m", value=1.0)],
                risks=[Risk(title="r")])
     assert completeness(r) == 1.0
+
+
+def test_partial_between():
+    from finsight.evaluation import completeness
+    from finsight.schemas import Report, Metric
+    r = Report(company="A", ticker="A", question="?", summary="ok",
+               metrics=[Metric(name="m", value=1.0)])
+    assert 0.0 < completeness(r) < 1.0
