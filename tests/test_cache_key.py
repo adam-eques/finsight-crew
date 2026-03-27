@@ -7,3 +7,8 @@ def test_stable():
 
 def test_order_matters():
     assert cache_key("a", "b") != cache_key("b", "a")
+
+
+def test_numeric_parts():
+    from finsight.cache import cache_key
+    assert cache_key(1, 2, 3) == cache_key(1, 2, 3)

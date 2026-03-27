@@ -26,3 +26,8 @@ def test_to_markdown():
     md = to_markdown(DATA, ["pe", "margin"])
     assert md.count("\n") >= 4  # header + sep + 3 rows
     assert "AAPL" in md and "| pe | margin |" in md
+
+
+def test_empty_data():
+    from finsight.compare import rank_by
+    assert rank_by({}, "pe") == []

@@ -17,3 +17,11 @@ def test_to_html_has_ticker_title():
     html = to_html(r)
     assert "<title>AAPL brief</title>" in html
     assert "<pre>" in html
+
+
+def test_empty_report_json_valid():
+    import json
+    from finsight.formats import to_json
+    from finsight.schemas import Report
+    data = json.loads(to_json(Report(company="A", ticker="A", question="?")))
+    assert data["findings"] == []
