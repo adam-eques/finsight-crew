@@ -42,3 +42,9 @@ def quick_ratio(current_assets: float, inventory: float,
     if current_liabilities == 0:
         raise ValueError("current_liabilities must be non-zero")
     return (current_assets - inventory) / current_liabilities
+
+
+def interest_coverage(ebit: float, interest_expense: float) -> float:
+    if interest_expense == 0:
+        raise ValueError("interest_expense must be non-zero")
+    return ebit / interest_expense
