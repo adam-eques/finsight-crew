@@ -40,3 +40,9 @@ class Comparison(BaseModel):
     metric: str
     tickers: List[str] = []
     values: dict = {}
+
+
+class Source(BaseModel):
+    title: str = ""
+    url: str
+    published: Optional[str] = None
