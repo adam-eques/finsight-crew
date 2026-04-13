@@ -32,3 +32,7 @@ def _risks(report: Report) -> str:
     return "\n".join(
         f"- **[{r.severity}]** {r.title} — {r.rationale}" for r in ranked
     )
+
+
+def sanitize_cell(text: str) -> str:
+    return str(text).replace("|", "\\|").replace("\n", " ")
