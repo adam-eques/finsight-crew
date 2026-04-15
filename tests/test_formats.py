@@ -25,3 +25,13 @@ def test_empty_report_json_valid():
     from finsight.schemas import Report
     data = json.loads(to_json(Report(company="A", ticker="A", question="?")))
     assert data["findings"] == []
+
+
+def test_metrics_csv():
+    from finsight.formats import metrics_to_csv
+    from finsight.schemas import Report, Metric
+    r = Report(company="A", ticker="A", question="?",
+               metrics=[Metric(name="gm", value=44.0, unit="%")])
+    csv = metrics_to_csv(r)
+    assert csv.splitlines()[0] == "name,value,unit"
+    assert "gm,44.0,%" in csv

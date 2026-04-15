@@ -20,3 +20,10 @@ def to_html(report: Report) -> str:
         f"<title>{report.ticker} brief</title></head>"
         f"<body><pre>{body}</pre></body></html>"
     )
+
+
+def metrics_to_csv(report: Report) -> str:
+    lines = ["name,value,unit"]
+    for m in report.metrics:
+        lines.append(f"{m.name},{m.value},{m.unit}")
+    return "\n".join(lines)
