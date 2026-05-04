@@ -25,3 +25,8 @@
 `Process.sequential` CrewAI `Crew`. `run(request)` interpolates the
 company/ticker/question into the task prompts and returns the final
 report text.
+
+## Observability
+
+Each run can produce a `RunManifest` capturing per-stage timings and
+token usage; see docs/observability.md.

@@ -29,3 +29,10 @@ See [docs/configuration.md](docs/configuration.md).
 ## Usage
 
 See [docs/usage.md](docs/usage.md) and [docs/agents.md](docs/agents.md).
+
+## Features
+
+- Provider-agnostic LLM (Claude default, OpenAI/Ollama swappable)
+- Tools: web search, market data, SEC filings, RAG, calculator, sentiment
+- Markdown / JSON / HTML briefs, multi-ticker comparison
+- Report evaluation and run observability
