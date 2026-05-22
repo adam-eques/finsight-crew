@@ -15,3 +15,11 @@ def get_logger(name: str = "finsight") -> logging.Logger:
         )
         _CONFIGURED = True
     return logging.getLogger(name)
+
+
+def set_level_from_env(env_var: str = "FINSIGHT_LOG_LEVEL") -> None:
+    import os
+
+    level = os.environ.get(env_var)
+    if level:
+        get_logger().setLevel(level.upper())
