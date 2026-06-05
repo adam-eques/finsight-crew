@@ -24,3 +24,15 @@ def test_gives_up():
 
     with pytest.raises(ValueError):
         always()
+
+
+def test_only_configured_exceptions():
+    import pytest
+    from finsight.net import retry
+
+    @retry(times=3, base_delay=0, exceptions=(ValueError,), sleep=lambda _: None)
+    def raises_type():
+        raise TypeError("nope")
+
+    with pytest.raises(TypeError):
+        raises_type()
