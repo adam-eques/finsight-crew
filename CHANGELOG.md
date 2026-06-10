@@ -37,4 +37,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 ## [0.6.0] - 2026-02-25
 - Run manifest with timings, token totals, and cost estimate.
 
+## [0.6.1] - 2026-04-08
+
 ## [Unreleased]

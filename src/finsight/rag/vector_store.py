@@ -35,3 +35,10 @@ class VectorStore:
         scored = [(doc, cosine(qv, v)) for doc, v in zip(self._docs, self._vecs)]
         scored.sort(key=lambda p: p[1], reverse=True)
         return scored[:k]
+
+
+def is_normalised(vec, tol: float = 1e-6) -> bool:
+    import math
+
+    norm = math.sqrt(sum(v * v for v in vec))
+    return abs(norm - 1.0) < tol or norm == 0.0

@@ -9,3 +9,5 @@ finsight research MSFT -q "How durable is the cloud moat?" \
 The brief is written to `reports/<ticker>-brief.md` (override with
 `--out`). Provider and model can be overridden per run without editing
 any config.
+
+If `--company` is omitted, the ticker is used as the company name.
