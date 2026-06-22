@@ -40,3 +40,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 ## [0.6.1] - 2026-04-08
 
 ## [Unreleased]
+- Docs, coverage, and developer-tooling improvements.
