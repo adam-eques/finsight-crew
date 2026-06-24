@@ -39,5 +39,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [0.6.1] - 2026-04-08
 
-## [Unreleased]
+## [0.7.0] - 2026-06-10
 - Docs, coverage, and developer-tooling improvements.
+
+## [Unreleased]
