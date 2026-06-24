@@ -17,3 +17,6 @@ run:
 
 clean:
 	rm -rf build dist *.egg-info .pytest_cache .ruff_cache
+
+cover:
+	pytest --cov=finsight --cov-report=term-missing
