@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from typing import List
 
 from finsight.rag.chunking import chunk_text
 from finsight.rag.vector_store import VectorStore
